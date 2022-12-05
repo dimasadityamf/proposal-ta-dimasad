@@ -2,27 +2,56 @@
 
 % Ubah konten-konten berikut sesuai dengan isi dari tinjauan pustaka
 \subsection{Hasil penelitian/perancangan terdahulu}
-\lipsum[3]
+\begin{enumerate} [label=\textbf{\arabic*}., listparindent=2em]
+  \item \textbf{Analysis and Design of Calories Burning Calculation in Jogging Using Thresholding Based Accelerometer Sensor}
+  
+  Finanta Okmuyura, Noverta Effendi, Witri Ramadhani, dan Adlian Jefiza melakukan penelitian ini dengan membuat analisis dan desain untuk dapat memonitor pembakaran kalori saat jogging. Pada penelitian ini, dalam memonitor pembakaran kalori menggunakan sensor akselerometer yang dapat menghitung berdasarkan dari tekanan dari beban yang diterima untuk menghasilkan nilai threshold untuk dikalkukasikan nantinya. Perhitungan kalori yang terbakar pada penelitian ini dengan menggunakan nilai jumlah langkah kaki, waktu dan berat pengguna untuk memberikan informasi pembakaran kalori dalam jogging.
+  
+  \item \textbf{Sistem Prediksi Kalori Terbakar Pada Pesepeda Menggunakan Feedforward Neural Network}
+  
+  Dina Budhi Utami dan Muhammad Ichwan melakukan penelitian mengenai sistem prediksi kalori yang terbakar pada pesepeda menggunakan Feedforward Neural Network. Penelitian ini melakukan prediksi berdasarkan detak jantung dan kecepatan kayuh saat bersepeda. Model prediksi kalori yang digunakan adalah Feedforward Neural Network dengan arsitektur jaringan saraf tiruan terdiri dari 3 lapis. Hasil keluaran dari jaringan saraf tiruan adalah nilai prediksi kalori menggunakan pengujian 10000 data latih dengan memiliki tingkat kesalahan adalah 7\%.
+
+  \item \textbf{Estimating Physical Activity Intensity and Energy Expenditure Using Computer Vision on Videos}
+  
+  Pada tahun 2019, Philip Saponaro bersama Haoran Wei, Gregory Dominick dan Chandra Kambhamettu melakukan penelitian ini. Penelitian yang dilakukan mengenai perkirakan intensitas aktivitas fisik dan pengeluaran energi dengan menggunakan sistem visi komputer. Nilai perkiraan aktivitas fisik dan pengeluaran energi menggunakan faktor usia, jenis kelamin, kecepatan dan isyarat aktivitas. Data nilai usia dan jenis kelamin didapatkan dengan jaringan Deep Expectation dan nilai aktivitas diperoleh dari perkiraan sudut sendi dan kecepatan gerak. Hasil yang didapat dengan akurasi nilai perkiraan aktivitas fisik sebesar 89,5\% dan perbedaan rata-rata pengeluaran energi sebesar 1,96 kCal/min.
+\end{enumerate}
 
 \subsection{Teori/Konsep Dasar}
 
-\subsubsection{Hukum Newton}
+\begin{enumerate} [label=\textbf{\arabic*}., listparindent=2em]
+  \item \textbf{Deteksi Gestur Tubuh}
+  
+  Deteksi gestur tubuh atau yang dapat disebut body pose recognition merupakan teknologi yang mampu membaca gerak pose tubuh kemudian menjadikan proses yang diinginkan oleh peneliti. Deteksi gestur ini merupakan topik dalam computer science yang memiliki tujuan agar komputer dapat memahami gerakan manusia yang berasal dari postur tubuh.
+  
+  \item \textbf{Deep Learning}
+  
+  Deep learning merupakan salah satu bidang dari machine learning yang memanfaatkan jaringan syaraf tiruan untuk implementasi permasalahan dengan dataset yang besar. Teknik deep learning memberikan arsitektur yang sangat kuat untuk supervised learning. Dengan menambahkan lebih banyak lapisan maka model pembelajaran tersebut bisa mewakili data citra berlabel dengan lebih baik. Pada machine learning terdapat teknik untuk menggunakan ekstraksi fitur dari data pelatihan dan algoritma pembelajaran khusus untuk mengklasifikasi citra maupun untuk mengenali suara. Namun, metode ini masih memiliki beberapa kekurangan baik dalam hal kecepatan dan akurasi.
 
-% Contoh penggunaan referensi dari pustaka
-Newton pernah merumuskan \citep{Newton1687} bahwa \lipsum[8]
-% Contoh penggunaan referensi dari persamaan
-Kemudian menjadi persamaan seperti pada persamaan \ref{eq:FirstLaw}.
+  \item \textbf{Long Short-Term Memory}
+  
+  Long Short-Term Memory (LSTM) adalah model jaringan saraf berulang (RNN) varian. LSTM terjadi karena dapat mengingat informasi jangka panjang LSTM menggantikan node lapisan tersembunyi dari RNN dengan sel LSTM yang berfungsi untuk menyimpan informasi sebelumnya. LSTM memiliki tiga gerbang yang mengontrol penggunaan dan pembaruan informasi tekstual sebelumnya: Forget Gate, Input Gate, Cell State, dan Output Gate. Sel memori dan tiga gerbang untuk membaca, menyimpan, dan memperbarui informasi historis, berikut tampak pada gambar 2.1 di bawah ini.
 
-% Contoh pembuatan persamaan
-\begin{equation}
-  % Label referensi dari persamaan yang dibuat
-  \label{eq:FirstLaw}
-  % Baris kode persamaan yang dibuat
-  \sum \mathbf{F} = 0\; \Leftrightarrow\; \frac{\mathrm{d} \mathbf{v} }{\mathrm{d}t} = 0.
-\end{equation}
+  % Contoh input gambar dengan format *.jpg
+  \begin{figure} [ht] \centering
+    % Nama dari file gambar yang diinputkan
+    \includegraphics[scale=1]{gambar/lstm.png}
+    % Keterangan gambar yang diinputkan
+    \caption{Komponen Long Short-Term Memory}
+    % Label referensi dari gambar yang diinputkan
+    \label{fig:LSTM}
+  \end{figure}
 
-\lipsum[9]
+  \item \textbf{Mediapipe}
+  
+  Mediapipe adalah kerangka kerja yang terutama digunakan untuk menghasilkan audio atau video Dengan bantuan framework MediaPipe, pipeline Machine Learning dapat dibuat untuk instance model inferensi seperti TensorFlow, TFLite, dan juga untuk fungsi pemrosesan media, bahkan tidak memerlukan GPU untuk menjalankan eksperimen dengan MediaPipe, karena grafik dan CPU terintegrasi saat ini bekerja dengan baik untuk solusi ini. Logikanya, FPS jauh lebih rendah daripada penggunaan GPU, tampak pada gambar 2.2 di bawah ini.
 
-\subsubsection{Anti Gravitasi}
-
-\lipsum[10]
+  % Contoh input gambar dengan format *.jpg
+  \begin{figure} [ht] \centering
+    % Nama dari file gambar yang diinputkan
+    \includegraphics[scale=1]{gambar/mediapipe.png}
+    % Keterangan gambar yang diinputkan
+    \caption{Mediapipe untuk Pose Estimation}
+    % Label referensi dari gambar yang diinputkan
+    \label{fig:Mediapipe}
+  \end{figure}
+\end{enumerate}
