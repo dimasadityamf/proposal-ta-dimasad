@@ -4,27 +4,59 @@
 
 \subsection{Metode yang digunakan}
 
-\lipsum[11]
-
 % Contoh input gambar dengan format *.jpg
 \begin{figure} [ht] \centering
   % Nama dari file gambar yang diinputkan
-  \includegraphics[scale=0.45]{gambar/blueprint.jpg}
+  \includegraphics[scale=0.9]{gambar/blok diagram metodologi.png}
   % Keterangan gambar yang diinputkan
-  \caption{\emph{Blueprint} roket yang akan diuji coba \citep{SpaceXBlueprint}}
+  \caption{Blok Diagram Kerja Sistem}
   % Label referensi dari gambar yang diinputkan
-  \label{fig:Blueprint}
+  \label{fig:BlokDiagram}
 \end{figure}
-
-% Contoh penggunaan referensi dari gambar yang diinputkan
-Pada \emph{blueprint} yang tertera di Gambar \ref{fig:Blueprint}. \lipsum[12]
 
 \subsection{Bahan dan peralatan yang digunakan}
 
-\lipsum[13]
-\lipsum[3]
+\begin{enumerate}
+  \item Raspberry pi
+  \item Kamera Webcam
+  \item Laptop/Komputer
+\end{enumerate}
 
 \subsection{Urutan pelaksanaan penelitian}
+
+\begin{enumerate} [label=\textbf{\arabic*}., listparindent=2em]
+  \item \textbf{Akuisisi data citra}
+  
+  Pada tahap pertama yaitu akuisisi data citra, data diperoleh menggunakan kamera Webcam yang dimiliki oleh laptop atau kamera Webcam eksternal yang dihubungkan pada laptop ataupun komputer. Proses akuisisi data citra dilakukan dengan peraga melakukan aktivitas pada treadmill dengan ditampakkan secara jelas pada tampilan kamera Webcam. Setelah terdapat peraga dan tampak jelas pada tampilan maka data citra akan dilakukan pada tahap selanjutnya untuk dideteksi dan segmentasi pose.
+  
+  \item \textbf{Deteksi dan estimasi pose}
+  
+  Deteksi dari hasil citra untuk dapat mengetahui bentuk postur tubuh manusia menggunakan Python dengan library OpenCV yaitu MediaPipe. Metode yang digunakan pada MediaPipe menggunakan deteksi pose untuk mendeteksi postur tubuh. Segementasi dilakukan dengan cara peraga melakukan aktivitas jogging pada treadmill dengan menentukan pose melangkah.
+
+  \item \textbf{Ekstrak fitur pose}
+  
+  Fitur dibuat berdasarkan segmentasi pose yang telah ditentukan dan dilakukan deteksi. Semua fitur dipersiapkan sebagai kombinasi dataset yang nantinya akan digunakan pada training. Setelah menentukan fitur yang akan diekstrak, dilakukan ekstrak fitur untuk mendapatkan setiap data yang dibutuhkan dengan setiap percobaan dari kombinasi segmentasi pose. Hasil yang didapat dari ekstrak fitur berupa data set yang nantinya akan dilakukan training untuk model yang diinginkan.
+
+  \item \textbf{Klasifikasi}
+  
+  Fitur yang telah dilakukan ekstraksi maka kemudian dilakukan training untuk memperoleh model deteksi. Model deteksi dari data set akan digunakan untuk melatih model dari sebuah algoritma pada Machine Learning. Dalam melakukan klasifikasi menggunakan LSTM (Long Short-Term Memory) Neural Networks. Proses training ini bertujuan agar nantinya komputasi yang dilakukan dalam proses deteksi akan dapat diolah berdasarkan akuisisi data citra menjadi bentuk atau pola pemahaman yang diinginkan. 
+
+  \item \textbf{Hasil deteksi}
+  
+  Setelah dilakukan training dan klasifikasi, akan didapat model deteksi yang diinginkan. Bentuk hasil klasifikasi yang dibuat adalah mendeteksi pose aktivitas dengan dapat menghitung langkah dan waktu yang ditempuh. Nilai langkah dan waktu yang ditempuh akan digunakan dalam perhitungan selanjutnya.
+
+  \item \textbf{Estimasi kalori}
+  
+  Pada tahap ini, untuk dapat melakukan dilakukan akuisisi data yang langsung menggunakan model training untuk langsung mendeteksi pose dari aktivitas pada treadmill. Perhitungan kalori dilakukan dengan mendapatkan input nilai berat badan peraga terlebih dahulu, kemudian peraga akan melakukan aktivitas jogging pada treadmill. Proses akuisisi data citra dengan model machine learning yang telah dibuat dideteksi langkah yang dilakukan untuk mengetahui berapa banyak langkah dan waktu dari peraga. Hasil langkah akan diakumulasikan menjadi jarak yang ditempuh dan waktu nanti akan diperhitungkan berdasarkan jarak yang ditempuh untuk mendapatkan nilai kecepatan. Nilai kecepataan digunakan sebagai penentu nilai kualitas dan intensitas aktivitas untuk menentukan nilai metabolic equivalent. Setelah mengetahui nilai metabolic equivalent, dapat kemudian dilakukan perhitungan kalori dengan rumus exercise calories. Perhitungan kalori dilakukan perhitungan total sampai peraga telah melakukan kegiatan sepenuhnya.
+
+  \item \textbf{Implementasi pada perangkat Singel Board Computer}
+  
+  Implementasi dilakukan sebagai testing dengan akuisisi citra secara realtime menggunakan model training machine learning yang telah dibuat. Setelah proses telah berjalan dengan baik pada testing menggunakan laptop/komputer, persiapan perangkat Single Board Computer untuk dapat menampung segala kebutuhan dalam mendeteksi dan memprediksi hasil kalori yang diinginkan. Implementasi juga dapat ditambahkan dengan memberikan hasil visualisasi menggunakan user interface sebagai tampilan yang dapat divisualkan untuk mempermudah pembacaan hasil.
+
+
+\end{enumerate}
+
+\subsubsection{Jadwal Kegiatan}
 
 % Ubah tabel berikut sesuai dengan isi dari rencana kerja
 \newcommand{\w}{}
@@ -39,20 +71,40 @@ Pada \emph{blueprint} yang tertera di Gambar \ref{fig:Blueprint}. \lipsum[12]
     \hline
 
     % Gunakan \G untuk mengisi sel dan \w untuk mengosongkan sel
-    Pengambilan data &
+    Studi pustaka &
     \G & \G & \G & \G & \w & \w & \w & \w & \w & \w & \w & \w & \w & \w & \w & \w \\
     \hline
 
-    Pengolahan data &
+    Akuisisi data citra &
+    \w & \w & \G & \G & \G & \w & \w & \w & \w & \w & \w & \w & \w & \w & \w & \w \\
+    \hline
+
+    Deteksi dan segmentasi pose &
+    \w & \w & \w & \G & \G & \G & \w & \w & \w & \w & \w & \w & \w & \w & \w & \w \\
+    \hline
+
+    Ekstrak fitur &
+    \w & \w & \w & \w & \G & \G & \G & \w & \w & \w & \w & \w & \w & \w & \w & \w \\
+    \hline
+
+    Training dataset &
     \w & \w & \w & \w & \G & \G & \G & \G & \w & \w & \w & \w & \w & \w & \w & \w \\
     \hline
 
-    Analisa data &
-    \w & \w & \w & \w & \w & \w & \w & \w & \G & \G & \G & \G & \w & \w & \w & \w \\
+    Estimasi kalori &
+    \w & \w & \w & \w & \w & \w & \G & \G & \G & \G & \G & \G & \w & \w & \w & \w \\
     \hline
 
-    Evaluasi penelitian &
-    \w & \w & \w & \w & \w & \w & \w & \w & \w & \w & \w & \w & \G & \G & \G & \G \\
+    Implementasi pada perangkat single board computer &
+    \w & \w & \w & \w & \w & \w & \w & \w & \w & \w & \w & \G & \G & \G & \w & \w \\
+    \hline
+
+    Uji coba dan evaluasi &
+    \w & \w & \w & \w & \w & \w & \G & \G & \G & \G & \G & \G & \G & \G & \G & \w \\
+    \hline
+
+    Penyusunan laporan &
+    \G & \G & \G & \G & \G & \G & \G & \G & \G & \G & \G & \G & \G & \G & \G & \G \\
     \hline
 
   \end{tabular}
