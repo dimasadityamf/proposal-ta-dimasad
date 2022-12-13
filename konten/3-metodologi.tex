@@ -45,9 +45,51 @@
   
   Setelah dilakukan training dan klasifikasi, akan didapat model deteksi yang diinginkan. Bentuk hasil klasifikasi yang dibuat adalah mendeteksi pose aktivitas dengan dapat menghitung langkah dan waktu yang ditempuh. Nilai langkah dan waktu yang ditempuh akan digunakan dalam perhitungan selanjutnya.
 
+  \begin{enumerate}[label=\textbf{\alph*}., listparindent=2em]
+    \item Hasil deteksi langkah
+    
+    Banyaknya jumlah langkah yang didapat saat hasil deteksi digunakan sebagai nilai variable pertama yang akan digunakan dalam penentuan perhitungan kalori. Langkah dideteksi dan dihitung seberapa banyak langkah yang dilakukan saat proses deteksi. Nilai banyaknya jumlah langkah akan disimpan dan akan digunakan pada saat proses perhitungan kalori setelah proses deteksi telah selesai dilakukan.
+
+    \item Hasil perhitungan waktu tempuh
+    
+    Waktu tempuh saat proses deteksi merupakan nilai variabel kedua yang akan digunakan dalam penentuan perhitungan kalori. Waktu tempuh dimulai saat dideteksi pertama kali nilai langkah yang ditemukan hingga saat akhir langkah tidak ada penambahan kembali yang menandakan proses deteksi telah selesai. Nilai waktu akan dibutuhkan dalam satuan waktu menit untuk proses perhitungan kalori.
+
+  \end{enumerate}
+
   \item \textbf{Estimasi kalori}
   
-  Pada tahap ini, untuk dapat melakukan dilakukan akuisisi data yang langsung menggunakan model training untuk langsung mendeteksi pose dari aktivitas pada treadmill. Perhitungan kalori dilakukan dengan mendapatkan input nilai berat badan peraga terlebih dahulu, kemudian peraga akan melakukan aktivitas jogging pada treadmill. Proses akuisisi data citra dengan model machine learning yang telah dibuat dideteksi langkah yang dilakukan untuk mengetahui berapa banyak langkah dan waktu dari peraga. Hasil langkah akan diakumulasikan menjadi jarak yang ditempuh dan waktu nanti akan diperhitungkan berdasarkan jarak yang ditempuh untuk mendapatkan nilai kecepatan. Nilai kecepataan digunakan sebagai penentu nilai kualitas dan intensitas aktivitas untuk menentukan nilai metabolic equivalent. Setelah mengetahui nilai metabolic equivalent, dapat kemudian dilakukan perhitungan kalori dengan rumus exercise calories. Perhitungan kalori dilakukan perhitungan total sampai peraga telah melakukan kegiatan sepenuhnya.
+  Perhitungan kalori dilakukan dengan mengacu pada nilai satuan ukuran MET (Metabolic Equivalent). Satuan MET akan mendapat pengukuran untuk konsumsi oksigen dan pembakaran kalori. Pada perhitungan ini akan difokuskan pada pembakaran kalori dan perhitungannya untuk mendapatkan hasil perhitungan pembakaran kalori total saat melakukan suatu aktivitas. Nilai dari satuan MET dapat didefinisikan pada Persamaan 3.1.
+
+  %Persamaan
+  
+  Berdasarkan nilai satuan ukuran MET, didapatkan suatu persamaan untuk menghitung pembakaran kalori yang didefiniskan pada Persamaan 3.2.
+
+  %Persamaan
+
+  Pada persamaan pembakaran kalori yang akan digunakan untuk melakukan perhitungan pembakaran kalori dari aktivitas yang dilakukan dibutuhkan beberapa nilai variabel untuk mendapatkah hasil total pembakaran kalori. Nilai-nilai yang dibutukan merupakan nilai dari jenis aktivitas yang akan mempengaruhi nilai MET, nilai berat badan (BB) dari seseorang yang melakukan aktivitas, dan waktu yang dibutuhkan dalam melakukan aktivitas tersebut.
+
+  \begin{enumerate}[label=\textbf{\alph*}., listparindent=2em]
+    \item MET (Metabolic Equivalent)
+    
+    Nilai MET merupakan nilai yang sangat penting pada persamaan ini. Setiap aktivitas memiliki nilai MET yang berbeda-beda dan telah ditentukan oleh peneliti yang telah merangkum banyak aktivitas untuk ditentukan berapa nilai MET yang dihasilkan. Pada aktivitas olahraga yang difokuskan saat ini adalah jogging pada treadmill juga memiliki perbedaan nilai MET yang dipengaruhi oleh kecepatan jogging. Dengan begitu nilai kecepatan aktivitas jogging perlu diketahui untuk nantinya akan digunakan menentukan nilai MET yang dihasilkan.
+
+    Kecepatan aktivitas jogging dapat diketahui dengan nilai hasil deteksi yang telah dilakukan. Nilai banyaknya langkah dan waktu tempuh digunakan untuk menentukan kecepatan. Pada persamaan umum dalam menentukan kecepatan, diketahui jika persamaan untuk menentukan kecepatan dapat didefinisikan pada Persamaan 3.3.
+
+    %Persamaan
+
+    Dengan didapatnya nilai banyaknya langkah yang didapat dari hasil deteksi, maka untuk menentukan jarak yang ditempuh dapat dengan mengalikan banyaknya langkah dengan panjang rata-rata langkah kaki dengan nilai 0,76 m. Sehingga untuk menentukan jarak dapat didefinisikan pada Persamaan 3.4.
+
+    %Persamaan
+
+    Dengan begitu, didapat nilai kecepatan dengan membagi jarak yang ditempuh berdasarkan banyaknya langkah dengan waktu tempuh yang telah didapat dari hasil deteksi.
+
+    \item Berat badan
+    
+    Berat badan (BB) juga merupakan nilai yang dibutuhkan dalam melakukan perhitungan kalori yang terbakar karena termasuk dalam persamaan yang digunakan. Nilai berat badan didapat dengan cara memberikan input tambahan sebelum melakukan aktivitas untuk menghitung pembakaran kalori sesuai dengan berat badan dari seseorang yang melakukan aktivitas tersebut. Jika tidak adanya nilai berat badan yang dimasukkan ke dalam perhitungan sesuai dengan seseorang yang melakukan aktivitas, dapat diberikan nilai rata-rata berat badan orang dewasa yaitu 70 kg. Sehingga dapat dilakukan proses perhitungan pembakaran kalori yang sesuai.
+
+    \item Waktu tempuh
+  \end{enumerate}
+
 
   \item \textbf{Implementasi pada perangkat Singel Board Computer}
   
